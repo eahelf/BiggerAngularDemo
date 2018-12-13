@@ -1,19 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { NewCmpComponent } from './new-cmp/new-cmp.component';
-// includes the new-cmp created in cmd
+import { ChangeTextDirective } from './change-text.directive';
+import { SqrtPipe } from './app.sqrt';
 
 @NgModule({
    declarations: [
+      SqrtPipe,
       AppComponent,
-      NewCmpComponent // will act as child
+      NewCmpComponent,
+      ChangeTextDirective
    ],
+
    imports: [
-      BrowserModule
+      BrowserModule,
+      RouterModule.forRoot([
+         {
+            path: 'new-cmp',
+            component: NewCmpComponent
+         }
+      ])
    ],
+
    providers: [],
-   bootstrap: [AppComponent] //Main app is given
+   bootstrap: [AppComponent]
 })
 
 export class AppModule { }
