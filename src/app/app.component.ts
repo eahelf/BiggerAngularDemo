@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MyserviceService} from './myservice.service'
 
 @Component({
    selector: 'app-root',
@@ -8,8 +9,9 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
    title = 'Angular 4 Project!';
-   todaydate = new Date();
-   jsonval = {name:'Rox', age:'25', address:{a1:'Mumbai', a2:'Karnataka'}};
-   months = ["Jan", "Feb", "Mar", "April", "May", "Jun",
-             "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+   todaydate;
+   constructor(private myservice: MyserviceService) {}
+   ngOnInit() {
+      this.todaydate = this.myservice.showTodayDate();
+   }
 }

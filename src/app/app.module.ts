@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NewCmpComponent } from './new-cmp/new-cmp.component';
 import { ChangeTextDirective } from './change-text.directive';
 import { SqrtPipe } from './app.sqrt';
+import { MyserviceService } from './myservice.service';
 
 @NgModule({
    declarations: [
@@ -25,7 +26,7 @@ import { SqrtPipe } from './app.sqrt';
       ])
    ],
 
-   providers: [],
+   providers: [MyserviceService],
    bootstrap: [AppComponent]
 })
 
